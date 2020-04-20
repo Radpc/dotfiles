@@ -1,0 +1,443 @@
+##########################
+### I3 CONFIG BY RADPC ###
+##########################
+
+#### VARIABLES ####
+
+# border_radius 5
+
+set $TERMINAL urxvt
+
+# Bar
+exec_always --no-startup-id ~/.config/i3/polybar.sh &
+
+# Transparency
+set $transparency FF
+set $semialpha 60
+
+# Pywal colors
+set_from_resource $pywal_bg1 i3wm.color0 #FF0000
+set_from_resource $pywal_accent i3wm.color13 #FF0000
+set_from_resource $pywal_text_on_accent i3wm.color15 #000000
+set_from_resource $pywal_accent2 i3wm.color3 #00FF00
+set_from_resource $pywal_text_on_accent2 i3wm.color4 #FF0000
+
+# colors
+
+set $text-color		 #FFFFFF
+set $bg-color 	         #10101030
+set $transparent	 #00660000
+
+set $focused-bg          #ff660080
+set $focused-text	 #FFFFFF
+
+set $active-bg		 #000000
+set $active-text 	 #FFFFFF
+
+set $inactive-bg 	 #202020
+set $inactive-text	 #A0A0A0
+
+set $urgent-bg 		 #505050
+set $urgent-text	 #FFFFFF
+
+# wallpaper
+set $wallpaper ~/.config/wall.png
+
+# set bar
+# set $bumblebee python3 ~/.config/i3/bumblebee-status/bumblebee-status
+
+# bar arguments
+# set $bumblebee_arguments -m pasink pasource  date battery bluetooth  time -p time.format="%H:%M" date.format="%a, %b %d"
+
+# bar theme
+# set $bumblebee_theme -t gruvbox #gruvbox-powerline
+
+# workspaces
+
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
+set $workspace0 "0"
+
+#### SYSTEM BINDINGS ####
+
+# Super
+set $mod Mod4
+
+# Modifier for rearranging floating windows
+floating_modifier $mod
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Let in the side
+bindsym $mod+q floating enable; resize set 500 300; move position 850 30; sticky enable; fullscreen disable
+
+# Ultra kill focused window
+bindsym $mod+Shift+k exec --no-startup-id  xdotool windowkill `xdotool getactivewindow`
+
+# Change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Splitting
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# Fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Center and Float
+bindsym $mod+Shift+c floating enable; resize set 700 400; move position center;
+
+# Change layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle float
+bindsym $mod+Shift+space floating toggle
+
+# Sticky toggle
+bindsym $mod+z sticky toggle
+
+# Change focus between floating
+bindsym $mod+space focus mode_toggle
+
+# Restart I3
+bindsym $mod+Shift+r restart
+
+# Print screen (to clipboard)
+bindsym --release Print exec --no-startup-id maim -s | tee /tmp/myShot.png | xclip -selection clipboard -t image/png && dunstify 'Screenshot taken!' 'You can Ctrl-V to paste it!' -I /tmp/myShot.png
+
+# Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
+
+# Media player controls
+bindsym XF86AudioPlay exec cmus-remote -u
+bindsym XF86AudioNext exec cmus-remote -n
+bindsym XF86AudioPrev exec cmus-remote -p
+
+# Sreen brightness controls
+bindsym --release XF86MonBrightnessUp exec --no-startup-id light -A 10
+bindsym --release XF86MonBrightnessDown exec --no-startup-id light -U 10
+
+# Switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace0
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace0
+
+# Resize window
+mode "resize" {
+
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Ctrl+Left resize shrink width 2 px or 2 ppt
+        bindsym Ctrl+Down resize grow height 2 px or 2 ppt
+        bindsym Ctrl+Up resize shrink height 2 px or 2 ppt
+        bindsym Ctrl+Right resize grow width 2 px or 2 ppt
+
+	bindsym Shift+Left resize shrink width 30 px or 30 ppt
+        bindsym Shift+Down resize grow height 30 px or 30 ppt
+        bindsym Shift+Up resize shrink height 30 px or 30 ppt
+        bindsym Shift+Right resize grow width 30 px or 30 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Flip the screen ?????
+mode "flip" {
+
+	bindsym Left exec --no-startup-id xrandr --output eDP-1-1 --rotate left
+	bindsym Right exec --no-startup-id xrandr --output eDP-1-1 --rotate right
+	bindsym Up exec --no-startup-id xrandr --output eDP-1-1 --rotate normal
+	bindsym Down exec --no-startup-id xrandr --output eDP-1-1 --rotate inverted
+
+	bindsym Shift+Left exec --no-startup-id xrandr --output eDP-1-1 --reflect y
+	bindsym Shift+Right exec --no-startup-id xrandr --output eDP-1-1 --reflect x
+	bindsym Shift+Up exec --no-startup-id xrandr --output eDP-1-1 --reflect normal
+	bindsym Shift+Down exec --no-startup-id xrandr --output eDP-1-1 --reflect xy
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+f mode "flip"
+
+# Power mode
+set $mode_system [L] lock - [E] logout - [S] suspend - [R] reboot - [shift+S] Shut down
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+p mode "$mode_system"
+
+set $keyboard_layout Keyboard Layout: (B) Brazil - ABNT, (J) Japanese
+mode "$keyboard_layout" {
+
+    bindsym b exec --no-startup-id setxkbmap br,mode "default"
+    bindsym j exec --no-startup-id setxkbmap us ,mode "default"
+
+# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+shift+Z mode "$keyboard_layout"
+
+
+#### APPS BINDINGS ####
+
+# Open Help
+bindsym $mod+Shift+h exec --no-startup-id urxvt -title floatme -e sh -c 'i3-msg -q resize set 450 500 && i3-msg -q move position center && vim -c "Goyo | set wrap !" ~/Documents/help.txt'
+
+# Open Useful
+bindsym $mod+Shift+u exec --no-startup-id urxvt -title floatme -e sh -c 'i3-msg resize set 450 500 && i3-msg move position center && vim -c "Goyo | set wrap !" ~/Documents/Useful' 
+
+# Open Weather
+bindsym $mod+Shift+w exec --no-startup-id urxvt -title 'floatme' -e sh -c 'i3-msg -q resize set 950 700 && i3-msg -q move position center && curl wttr.in &&  zsh'
+
+# Rofi
+bindsym $mod+d exec rofi -show run
+
+# Ranger
+bindsym $mod+Shift+x exec --no-startup-id urxvt -e ranger 
+
+# Favorites Rofi
+#bindsym $mod+c exec $HOME/.config/rofi/menus/favorites
+
+# Games rofi
+bindsym $mod+g exec --no-startup-id $HOME/.scripts/rofiGames.sh '$pywal_text_on_accent2' '$pywal_text_on_accent' '$pywal_bg1' '$pywal_accent2' 
+
+# Development rofi
+bindsym $mod+x exec --no-startup-id $HOME/.scripts/rofiDevelopment.sh '$pywal_text_on_accent2' '$pywal_text_on_accent' '$pywal_bg1' '$pywal_accent2'
+
+# Server rofi
+bindsym $mod+Shift+s exec --no-startup-id $HOME/.scripts/rofiServer.sh '$pywal_text_on_accent2' '$pywal_text_on_accent' '$pywal_bg1' '$pywal_accent2'
+
+# Terminal
+bindsym $mod+Return exec --no-startup-id urxvt
+
+# Sticky note
+bindsym $mod+Ctrl+Return exec --no-startup-id $HOME/.scripts/drawTerminal.sh
+
+# Tasks
+bindsym $mod+Shift+t exec --no-startup-id urxvt -title floatme -g 60x15 -e sh -c 'task && printf "\n\n\n\n" && zsh'
+
+# Floating terminal
+bindsym $mod+Shift+Return exec --no-startup-id urxvt -title "floatme" 
+
+# Nautilus
+bindsym --release $mod+Shift+d exec --no-startup-id nautilus Desktop
+
+# Telegram
+bindsym --release $mod+t exec --no-startup-id env QT_IM_MODULE=xim telegram
+
+# Visual code
+bindsym --release $mod+c exec --no-startup-id code
+
+# Atom
+bindsym --release $mod+a exec --no-startup-id atom
+
+# Music script
+bindsym --release $mod+m exec --no-startup-id  $HOME/.scripts/getMusic.sh
+
+# Alt+tab
+bindsym --release Mod1+Tab exec --no-startup-id play $HOME/Documents/SFX/horn.mp3
+
+# Open music Workspace
+bindsym $mod+Shift+m workspace $workspace4; exec --no-startup-id urxvt -e cmus
+
+# Vim script
+bindsym --release $mod+Shift+v exec --no-startup-id $HOME/.scripts/openInVim.sh
+
+# Search Kanji
+bindsym --release $mod+k exec --no-startup-id python3 $HOME/Desktop/Code/Python/getKanji/getKanji.py
+
+#### Bar appearance ####
+
+#bar {
+#        i3bar_command i3bar -t
+#	position bottom
+#        font pango:Inconsolata 8
+#        #status_command $polybar $arguments
+#        colors {
+#                statusline         $text-color
+#                background         $pywal_bg1$transparency  #$bg-color
+#                separator          $transparent
+#
+#                                  BORDER       BACKGROUND   TEXT
+#                focused_workspace  $transparent $pywal_accent  $pywal_text_on_accent
+#                inactive_workspace $transparent $pywal_bg2$transparency $pywal_text_on_accent2
+#                active_workspace   $transparent $active-bg   $active-text
+#                urgent_workspace   $transparent $urgent-bg   $urgent-text
+#            }
+#}
+
+
+
+
+#### Theme ####
+
+# System font
+font pango:System San Francisco Display 8
+
+# Wallpaper
+exec --no-startup-id feh --bg-scale $wallpaper
+
+# Border Thickness
+for_window [class="^.*"] border pixel 1
+
+client.focused 		  #000000    $pywal_accent  $pywal_text_on_accent    #ffffff	 $pywal_accent$transparency
+client.focused_inactive   #000000    #000000    #000000    #484e50      #ffffff00
+client.unfocused          #00000000    $pywal_bg$transparency    #pywal_text_on_accent2    #292d2e      #222222
+#client.urgent             #2f343a    #900000    #ffffff    #900000      #900000
+#client.placeholder        #000000    #0c0c0c    #ffffff    #000000      #0c0c0c
+ 
+#client.background         #ffffff
+
+#### Startup applications ####
+   
+# network applet
+exec --no-startup-id nm-applet
+
+# Font
+exec xset +fp ~/.fonts/misc/
+
+# transparency app
+exec --no-startup-id compton -f
+
+# wal theme
+exec --no-startup-id wal -R
+
+# pulseaudio restart
+exec --no-startup-id pulseaudio --kill
+exec --no-startup-id pulseaudio
+
+# dunst start
+# exec --no-startup-id dunst
+
+#### Windows configurations ####
+
+# Enable floating
+
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Gnome-power-statistics"] floating enable
+for_window [class="CastleDB"] floating enable; move position center
+for_window [title="^floatme$"] floating enable
+for_window [title="^preview$"] floating enable
+for_window [title="^preview$"] move position center
+
+# Open in the adequate workspace
+assign [class="Google-chrome"] $workspace2
+assign [class="Firefox"] $workspace2
+assign [class="discord"] $workspace3
+assign [class="^Steam$"] $workspace5
+assign [class="Gimp"] $workspace6
+assign [class="krita"] $workspace6
+assign [class="TelegramDesktop"] $workspace3
+assign [class="Code"] $workspace1
+assign [class="Atom"] $workspace1
+assign [title="^myServer$"] $workspace9
+
+#### Starting configs ####
+
+#Touchpad
+exec --no-startup-id xinput set-prop "DLLA6AD:00 06CB:75DD Touchpad" "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop "DLLA6AD:00 06CB:75DD Touchpad" "libinput Natural Scrolling Enabled" 1
+
+
+
+#### I3 GAPS ####
+
+# Set inner/outer gaps
+gaps inner 12
+gaps outer 1
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+#smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+smart_borders on
+# Gaps mode
+set $mode_gaps Gaps - [O]uter, [I]nner
+set $mode_gaps_outer Outer - [+|-|0] local - [Shift + +|-|0] global
+set $mode_gaps_inner Inner - [+|-|0] local - [Shift + +|-|0] global
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
