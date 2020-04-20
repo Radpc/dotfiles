@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Itch
+Exec=/home/radpc/.itch/itch
+Type=Application
+Categories=Game
+StartupNotify=false
+Name[en_US]=Itch.desktop

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Unity
+Exec=/home/radpc/Desktop/Radpc/AppImages/Unity.AppImage
+Type=Application
+Categories=Game
+StartupNotify=false
+Name[en_US]=Unity.desktop

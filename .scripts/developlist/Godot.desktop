@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Godot
+Exec=/home/radpc/Desktop/Radpc/AppImages/Godot.64
+Type=Application
+Categories=Game
+StartupNotify=false
+Name[en_US]=Godot.desktop

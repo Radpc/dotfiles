@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Dwarf Fortress
+Exec=/home/radpc/Desktop/Radpc/Games/Df_modded/startlnp
+Type=Application
+Categories=Game
+StartupNotify=false
+Name[en_US]=Dwarf Fortress.desktop

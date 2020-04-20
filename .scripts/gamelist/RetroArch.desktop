@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=RetroArch
+Exec=retroarch
+Type=Application
+Categories=Game
+StartupNotify=false
+Name[en_US]=RetroArch.desktop

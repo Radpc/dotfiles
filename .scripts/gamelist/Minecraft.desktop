@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Minecraft
+Exec=minecraft-launcher
+Type=Application
+Categories=Game
+StartupNotify=false
+Name[en_US]=Minecraft.desktop

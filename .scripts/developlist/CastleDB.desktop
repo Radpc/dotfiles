@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=CastleDB
+Exec=/home/radpc/Desktop/Radpc/GameDev/CastleDB/nw
+Type=Application
+Categories=Game
+StartupNotify=false
+Name[en_US]=CastleDB.desktop

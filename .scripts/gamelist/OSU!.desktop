@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=OSU!
+Exec=lutris lutris:rungameid/299
+Type=Application
+Categories=Game
+StartupNotify=true
+Path=/home/radpc/PortWINE/PortOSU/data/scripts/
+Icon=/home/radpc/PortWINE/PortOSU/data/img/w.png

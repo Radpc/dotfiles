@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Android Studio
+Exec=/home/radpc/Documents/Executaveis/android-studio/bin/studio.sh
+Type=Application
+Categories=Game
+StartupNotify=false
+Name[en_US]=Android Studio.desktop

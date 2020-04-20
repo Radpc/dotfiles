@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Edex
+Exec=/home/radpc/Desktop/Radpc/AppImages/Edex.AppImage
+Type=Application
+Categories=Game
+StartupNotify=false
+Name[en_US]=Edex.desktop

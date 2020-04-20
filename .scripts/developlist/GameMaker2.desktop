@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=GameMaker2
+Exec= lutris lutris:rungameid/298
+Type=Application
+Categories=Game
+StartupNotify=false
+Name[en_US]=GameMaker2.desktop
