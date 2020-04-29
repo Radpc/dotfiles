@@ -54,7 +54,7 @@ URxvt*background: #FFFFFFFF
 !!URxvt.font: xft:DejaVuSansMono Nerd Font:pixelsize=12
 !!URxvt.font: xft:Iosevka\ Nerd\ Font:pixelsize=12
 !!URxvt.font: xft:InconsolataLGC\ Nerd\ Font:pixelsize=12
-URxvt.font: xft:InconsolataLGC\ Nerd\ Font:pixelsize=12, xft:Iosevka Term:pixelsize=15
+URxvt.font: xft:InconsolataLGC\ Nerd\ Font:pixelsize=10, xft:Iosevka Term:pixelsize=15
 
 URxvt.letterSpace: 0
 URxvt.lineSpace: 0

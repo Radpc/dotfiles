@@ -4,7 +4,7 @@
 
 #### VARIABLES ####
 
-# border_radius 5
+# border_radius 10
 
 set $TERMINAL urxvt
 
@@ -132,7 +132,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 # Media player controls
 bindsym XF86AudioPlay exec cmus-remote -u
 bindsym XF86AudioNext exec cmus-remote -n
-bindsym XF86AudioPrev exec cmus-remote -p
+bindsym XF86AudioPrev exec cmus-remote -r
 
 # Sreen brightness controls
 bindsym --release XF86MonBrightnessUp exec --no-startup-id light -A 10

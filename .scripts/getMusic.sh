@@ -5,6 +5,6 @@ if [ $? -eq 0  ]
 then
 	notify-send "Song downloaded!" "See in music/special" -i music
 else
-	notify-send "Failed" "Did you select a youtube URL?" -i error
+	notify-send "Failed" "Did you select a youtube URL? $(xclip -o)" -i error
 fi
 
